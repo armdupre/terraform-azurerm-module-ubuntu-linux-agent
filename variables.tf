@@ -141,3 +141,15 @@ VmSize must be one of the following sizes:
 		EOF
 	}
 }
+
+variable "init_cli" {
+	default = <<-EOF
+#!/bin/bash -xe
+curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+az --help
+apt-get install -y iperf3
+apt-get install -y iperf
+uname -a
+    EOF
+	type = string
+}

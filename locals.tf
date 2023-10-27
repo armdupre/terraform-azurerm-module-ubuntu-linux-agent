@@ -29,15 +29,5 @@ locals {
 	UserProjectTag = var.UserProjectTag
 	Version = var.Version
 	VmSize = var.VmSize
-}
-
-locals {
-	init_cli = <<-EOF
-#!/bin/bash -xe
-curl -sL https://aka.ms/InstallAzureCLIDeb | bash
-az --help
-apt-get install -y iperf3
-apt-get install -y iperf
-uname -a
-    EOF
+	init_cli = var.init_cli
 }
