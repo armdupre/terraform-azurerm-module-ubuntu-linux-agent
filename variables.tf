@@ -1,5 +1,5 @@
 variable "AdminUserName" {
-	default = "azure"
+	default = "ubuntu"
 	description = "Id of the VM administrator account"
 	type = string
 }
@@ -45,7 +45,7 @@ variable "Eth1SubnetId" {
 }
 
 variable "ImageSku" {
-	default = "18.04-LTS"
+	default = "22_04-lts"
 	description = "An instance of an offer, such as a major release of a distribution."
 	type = string
 }
@@ -63,7 +63,7 @@ variable "InstanceId" {
 }
 
 variable "MarketplaceImageOfferId" {
-	default = "UbuntuServer"
+	default = "0001-com-ubuntu-server-jammy"
 	description = "The name of a group of related images created by a publisher."
 	type = string
 }
