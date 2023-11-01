@@ -80,13 +80,16 @@ resource "azurerm_network_interface" "Eth1" {
 		ResourceGroup = local.ResourceGroupName
 		Location = local.ResourceGroupLocation
 	}
-	ip_configuration {
-		name = "ipconfig1"
-		private_ip_address = local.Eth1IpAddresses[0]
-		private_ip_address_allocation = "Static"
-		subnet_id = local.Eth1SubnetId
-		primary = "true"
-		private_ip_address_version = "IPv4"
+	dynamic "ip_configuration" {
+		for_each = local.Eth1IpAddresses
+		content {
+			name = "ipconfig${count.index}"
+			private_ip_address = local.Eth1IpAddresses[count.index]
+			private_ip_address_allocation = "Static"
+			subnet_id = local.Eth1SubnetId
+			primary = count.index == 0 ? true : false
+			private_ip_address_version = "IPv4"
+		}
 	}
 	dns_servers = []
 	enable_accelerated_networking = local.EnableAcceleratedNetworking
