@@ -81,13 +81,14 @@ resource "azurerm_network_interface" "Eth1" {
 		Location = local.ResourceGroupLocation
 	}
 	dynamic "ip_configuration" {
-		for_each = local.Eth1IpAddresses
+		for_each = range(length(local.Eth1IpAddresses))
+		iterator = index
 		content {
-			name = "ipconfig${count.index}"
-			private_ip_address = local.Eth1IpAddresses[count.index]
+			name = "ipconfig${index.value}"
+			private_ip_address = local.Eth1IpAddresses[index.value]
 			private_ip_address_allocation = "Static"
 			subnet_id = local.Eth1SubnetId
-			primary = count.index == 0 ? true : false
+			primary = index.value == 0 ? true : false
 			private_ip_address_version = "IPv4"
 		}
 	}
