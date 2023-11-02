@@ -112,3 +112,10 @@ resource "azurerm_public_ip" "Eth0PublicIpAddress" {
 	idle_timeout_in_minutes = 4
 	domain_name_label = local.DnsLabel
 }
+
+resource "time_sleep" "SleepDelay" {
+	create_duration = local.SleepDelay
+	depends_on = [
+		azurerm_linux_virtual_machine.Instance
+	]
+}
