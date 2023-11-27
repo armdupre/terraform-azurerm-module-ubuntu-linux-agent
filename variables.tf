@@ -10,15 +10,15 @@ variable "DisablePasswordAuthentication" {
 	type = bool
 }
 
-variable "EnableAcceleratedNetworking" {
-	default = true
-	description = "Enables SR-IOV on supported VMs to improve networking performance"
-	type = bool
-}
-
 variable "EnableIpForwarding" {
 	default = true
 	description = "Enables forwarding of network traffic to an address not assigned to VM"
+	type = bool
+}
+
+variable "Eth0EnableAcceleratedNetworking" {
+	default = false
+	description = "Enables SR-IOV on supported VMs to improve networking performance on first network interface"
 	type = bool
 }
 
@@ -31,6 +31,12 @@ variable "Eth0IpAddress" {
 variable "Eth0SubnetId" {
 	description = "Id of the subnet associated with the first network interface"
 	type = string
+}
+
+variable "Eth1EnableAcceleratedNetworking" {
+	default = true
+	description = "Enables SR-IOV on supported VMs to improve networking performance on second network interface"
+	type = bool
 }
 
 variable "Eth1IpAddresses" {
