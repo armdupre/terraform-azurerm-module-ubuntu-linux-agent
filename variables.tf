@@ -69,7 +69,7 @@ variable "InstanceId" {
 }
 
 variable "MarketplaceImageOfferId" {
-	default = "0001-com-ubuntu-server-jammy"
+	default = "0001-com-ubuntu-server-focal"
 	description = "The name of a group of related images created by a publisher."
 	type = string
 }
