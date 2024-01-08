@@ -51,7 +51,7 @@ variable "Eth1SubnetId" {
 }
 
 variable "ImageSku" {
-	default = "22_04-lts-gen2"
+	default = "20_04-lts-gen2"
 	description = "An instance of an offer, such as a major release of a distribution."
 	type = string
 }
@@ -135,7 +135,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "2204-lts"
+	default = "20_04-lts-gen2"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
