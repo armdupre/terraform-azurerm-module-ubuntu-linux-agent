@@ -93,7 +93,7 @@ resource "azurerm_network_interface" "Eth1" {
 		}
 	}
 	dns_servers = []
-	enable_accelerated_networking = local.Eth1EnableAcceleratedNetworking
+	accelerated_networking_enabled = local.Eth1EnableAcceleratedNetworking
 	ip_forwarding_enabled = local.EnableIpForwarding
 }
 
