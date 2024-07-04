@@ -51,7 +51,7 @@ variable "Eth1SubnetId" {
 }
 
 variable "ImageSku" {
-	default = "20_04-lts-gen2"
+	default = "22_04-lts-gen2"
 	description = "An instance of an offer, such as a major release of a distribution."
 	type = string
 }
@@ -69,7 +69,7 @@ variable "InstanceId" {
 }
 
 variable "MarketplaceImageOfferId" {
-	default = "0001-com-ubuntu-server-focal"
+	default = "0001-com-ubuntu-server-jammy"
 	description = "The name of a group of related images created by a publisher."
 	type = string
 }
@@ -135,7 +135,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "20_04-lts-gen2"
+	default = "22_04-lts-gen2"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
