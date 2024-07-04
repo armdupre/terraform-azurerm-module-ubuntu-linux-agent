@@ -20,7 +20,7 @@ resource "azurerm_linux_virtual_machine" "Instance" {
 		caching = "ReadWrite"
 		storage_account_type = "Standard_LRS"
 	}
-	computer_name = local.InstanceName
+	computer_name = replace(local.InstanceName, "_", "-")
 	admin_username = local.AdminUserName
 	disable_password_authentication = local.DisablePasswordAuthentication
 	admin_ssh_key {
@@ -64,7 +64,7 @@ resource "azurerm_network_interface" "Eth0" {
 	}
 	dns_servers = []
 	accelerated_networking_enabled = local.Eth0EnableAcceleratedNetworking
-	enable_ip_forwarding = local.EnableIpForwarding
+	ip_forwarding_enabled = local.EnableIpForwarding
 	depends_on = [
 		azurerm_public_ip.Eth0PublicIpAddress
 	]
@@ -94,7 +94,7 @@ resource "azurerm_network_interface" "Eth1" {
 	}
 	dns_servers = []
 	enable_accelerated_networking = local.Eth1EnableAcceleratedNetworking
-	enable_ip_forwarding = local.EnableIpForwarding
+	ip_forwarding_enabled = local.EnableIpForwarding
 }
 
 resource "azurerm_public_ip" "Eth0PublicIpAddress" {
