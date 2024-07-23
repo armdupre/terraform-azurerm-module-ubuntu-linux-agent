@@ -33,6 +33,9 @@ resource "azurerm_linux_virtual_machine" "Instance" {
 		azurerm_network_interface.Eth1.id
 	]
 	boot_diagnostics {}
+	identity {
+		type = "SystemAssigned"
+	}	
 	depends_on = [
 		azurerm_network_interface.Eth0,
 		azurerm_network_interface.Eth1

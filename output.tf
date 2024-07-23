@@ -12,6 +12,7 @@ output "Instance" {
 		"admin_username" : azurerm_linux_virtual_machine.Instance.admin_username
 		"computer_name" : azurerm_linux_virtual_machine.Instance.computer_name
 		"disable_password_authentication" : azurerm_linux_virtual_machine.Instance.disable_password_authentication
+		"identity" : azurerm_linux_virtual_machine.Instance.identity
 		"location" : azurerm_linux_virtual_machine.Instance.location
 		"name" : azurerm_linux_virtual_machine.Instance.name
 		"os_disk" : azurerm_linux_virtual_machine.Instance.os_disk

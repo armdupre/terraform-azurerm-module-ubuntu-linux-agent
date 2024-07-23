@@ -135,7 +135,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "22_04-lts-gen2"
+	default = "2204-lts"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
